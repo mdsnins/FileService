@@ -6,6 +6,18 @@ li.folder{
     list-style-image: url('/img/folder.svg');
 }
 
+li.image{
+    list-style-image: url('/img/image.svg');
+}
+
+li.txt{
+    list-style-image: url('/img/txt.svg');
+}
+
+li.zip{
+    list-style-image: url('/img/zip.svg');
+}
+
 .rainbow {
     -webkit-animation: rainbow 1s infinite;
     -ms-animation: rainbow 1s infinite;
