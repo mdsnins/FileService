@@ -8,12 +8,28 @@
     <title>c2w2m2</title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+
+    <meta http-equiv="refresh" content="30">
+    <meta property="og:title" content="FileService"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="http://file.c2w2m2.com/"/>
+    <meta property="og:description" content="FileService"/>
+    <meta property="og:image" content="/img/meta.jpg"/>
+
+    <meta name="twitter:card" content="FileService">
+    <meta name="twitter:url" content="http://file.c2w2m2.com/">
+    <meta name="twitter:title" content="FileService">
+    <meta name="twitter:description" content="FileService">
+    <meta name="twitter:image" content="/img/meta.jpg">
 </head>
 
 <body>
     <div id="app">
         <file fname=".." class="folder"></file>
-        <% for(var i=0; i < files.length; i++) { %><file fname="<%=files[i].name %>" class="<%= files[i].directory? 'folder':'file'%>"></file><% } %>
+        <% for(var i=0; i < files.length; i++) { %><file fname="<%=files[i].name %>" class="<%=files[i].type %>" ></file><% } %>
     </div>
     <script src="/js/index.js"></script>
 </body>
+</html>
