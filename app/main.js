@@ -7,18 +7,30 @@ module.exports = function (app, fs, path) {
     }
 
     function getType(extension){
-        let img = ['png', 'jpg', 'gif']
-        let txt = ['md', 'txt']
-        let zip = ['zip', '7z', 'tar', 'gz']
-
-        if(img.includes(extension))
-            return 'image'
-        else if(txt.includes(extension))
-            return 'txt'
-        else if(zip.includes(extension))
-            return 'zip'
-        else
-            return 'file'
+        let file_sig = {
+            'img': [
+                'png',
+                'jpg',
+                'gif',
+		'ico'
+            ],
+            'txt': [
+                'md',
+                'txt'
+            ],
+            'zip': [
+                'zip',
+                '7z',
+                'tar',
+                'gz'
+            ],
+'ppt':['pptx','ppt']
+        }
+        for(let i in file_sig){
+            if(file_sig[i].includes(extension))
+                return i
+        }
+        return 'file'
     }
     
     function getFileList(path_) {
@@ -50,7 +62,7 @@ module.exports = function (app, fs, path) {
         } else {
             if(fs.existsSync(folderpath)){
                 let extension = getExtension(folderpath)
-                let noDownload = ['txt', 'md', 'css', 'html', 'js', 'png', 'jpg', 'gif']
+                let noDownload = ['txt', 'md', 'css', 'html', 'js', 'png', 'jpg', 'gif', 'ico','py','c']
                 if(extension != ''){
                     if(noDownload.includes(extension))
                         res.sendFile(folderpath)
@@ -63,4 +75,3 @@ module.exports = function (app, fs, path) {
         }
     })
 }
-
