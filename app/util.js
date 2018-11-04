@@ -41,7 +41,7 @@ module.exports = () => {
         let items = fs.readdirSync(path_)
     
         items.forEach(element => {
-            if(element[0] != '.' && element != "js" && element != "css" && element != "img")
+            if(element[0] != '.' && element != "js" && element != "css" && element != "img" && element != "private")
                 result.push({ name: element, type: fs.existsSync(path_ + '/' + element + '/') ? 'folder' : getType(getExtension(element))})
         })
         
