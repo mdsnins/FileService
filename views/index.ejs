@@ -27,8 +27,8 @@
 
 <body>
     <div id="app">
-        <file fname=".." class="folder"></file>
-        <% for(var i=0; i < files.length; i++) { %><file fname="<%=files[i].name %>" class="<%=files[i].type %>" ></file><% } %>
+        <file fname=".." class="folder"></file><% for(var i=0; i < files.length; i++) { %>    
+        <file fname="<%=files[i].name %>" class="<%=files[i].type %>" ></file><% } %>
     </div>
     <script src="/js/index.js"></script>
 </body>
