@@ -2,12 +2,12 @@ const fs = require('fs')
 const express = require('express')
 const bodyparser = require('body-parser')
 const app = express()
-const path = __dirname + '/files'
+const path = '/home/files'
 
 app.use(express.json())
 app.use(express.urlencoded())
 
-app.set('views', __dirname + '/views');
+app.set('views', '/home/file/views');
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
