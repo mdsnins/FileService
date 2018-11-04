@@ -1,19 +1,19 @@
 module.exports = (app, fs, path) => {
 
-    require('./util')
+    const util = require('./util')
 
     app.get('/*', (req, res) => {
         let param = req.param(0)
         let folderpath = path + '/' + param
 
         if (fs.existsSync(folderpath + '/')) {
-            result = getFileList(folderpath)
+            result = util.getFileList(folderpath)
             res.render('index', {
                 files: result
             })
         } else {
             if(fs.existsSync(folderpath)){
-                let extension = getExtension(folderpath)
+                let extension = util.getExtension(folderpath)
                 let noDownload = ['txt', 'md', 'css', 'html', 'js', 'png', 'jpg', 'gif', 'ico','py','c']
                 if(extension != ''){
                     if(noDownload.includes(extension))

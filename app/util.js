@@ -1,11 +1,11 @@
-function getExtension(name) {
+exports.getExtension = (name) => {
     if (name.search('.') != 0)
         return ''
 
     return name.substring(name.indexOf('.') + 1, name.length)
 }
 
-function getType(extension) {
+exports.getType = (extension) => {
     let file_sig = {
         'img': [
             'png',
@@ -35,13 +35,13 @@ function getType(extension) {
     return 'file'
 }
 
-function getFileList(path_) {
+exports.getFileList = (path_) => {
     let result = new Array()
     let items = fs.readdirSync(path_)
 
     items.forEach(element => {
         if (element[0] != '.' && element != "js" && element != "css" && element != "img" && element != "private")
-            result.push({ name: element, type: fs.existsSync(path_ + '/' + element + '/') ? 'folder' : getType(getExtension(element)) })
+            result.push({ name: element, type: fs.existsSync(path_ + '/' + element + '/') ? 'folder' : this.getType(this.getExtension(element)) })
     })
 
     result.sort((a, b) => {
