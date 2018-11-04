@@ -15,4 +15,4 @@ app.use(express.static('static'))
 
 const main = require('./app/main')(app, fs, path)
 
-app.listen(5050)
+app.listen(80)
