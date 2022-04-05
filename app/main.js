@@ -12,7 +12,7 @@ module.exports = function (app, fs, path) {
                 'png',
                 'jpg',
                 'gif',
-		        'ico'
+                'ico'
             ],
             'txt': [
                 'md',
